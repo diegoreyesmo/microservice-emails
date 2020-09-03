@@ -1,0 +1,25 @@
+= Microservicio emails
+
+Microservicio publicado en el puerto 10340 que centraliza las conexiones al proveedor de envío de correos.
+
+== Send
+Este endpoint se utiliza para enviar correos
+
+
+=== Request Fields
+include::{snippets}/send/request-fields.adoc[]
+
+=== Request Parameters
+include::{snippets}/send/request-parameters.adoc[]
+
+=== Response Fields
+include::{snippets}/send/response-fields.adoc[]
+
+=== Ejemplo de request/response
+include::{snippets}/send/curl-request.adoc[]
+include::{snippets}/send/http-request.adoc[]
+include::{snippets}/send/http-response.adoc[]
+
+include::{snippets}/send-sync/curl-request.adoc[]
+include::{snippets}/send-sync/http-request.adoc[]
+include::{snippets}/send-sync/http-response.adoc[]

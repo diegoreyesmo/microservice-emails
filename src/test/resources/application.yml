@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: emails
+  profiles:
+    active: test
+  jackson:
+    property-naming-strategy: KEBAB_CASE
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    
+nosql:
+  database: server
+  collection: mails
+  pageNum: 1
+  pageSize: 10
+  
+emails:
+  whiteList:
+    extensions: doc, docx, xls, xlsx, ppt, pptx, pdf, jpeg, jpg, gif, png
+## Cloud
+cloud:
+  ## AWS
+  aws: 
+    ses:
+      accessKey: "AKIAIEGLZJUMHAFA4VWA"
+      secretKey: "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"
+    region:
+      static: "us-east-1"
+    stack:
+      auto: false
+    sqs:
+      endpoint: "https://sqs.us-east-1.amazonaws.com/"

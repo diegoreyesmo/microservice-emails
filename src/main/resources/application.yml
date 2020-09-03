@@ -1,0 +1,89 @@
+---
+## Server
+server:
+  port: 8082
+  compression:
+    enabled: true
+    minResponseSize: 256
+    mimeTypes:
+      - "application/json"
+
+## Management
+management:
+  server:
+    port: 8083
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    git:
+      mode: "full"
+
+## Spring
+spring:
+  jackson:
+    property-naming-strategy: KEBAB_CASE
+  jmx:
+    enabled: true
+
+## Feign
+feign: 
+  command: 
+    timeSleep: 2000
+
+## Hystrix
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000000  
+            interruptOnTimeout: false
+      circuitBreaker:
+        enabled: false
+      fallback:
+        enabled: false
+
+## Ribbon
+ribbon:
+  ConnectTimeout: 100000
+  ReadTimeout: 100000
+
+## Cloud
+cloud:
+  ## AWS
+  aws: 
+    ses:
+      accessKey: "{cipher}**accessKey**"
+      secretKey: "{cipher}**secretKey**"
+    region:
+      static: "us-east-1"
+    stack:
+      auto: false
+    sqs:
+      endpoint: "https://sqs.us-east-1.amazonaws.com/"
+
+# NO-SQL
+nosql:
+  database: server
+  collection: mails
+  pageNum: 1
+  pageSize: 10
+
+#WHITE LIST
+emails:
+  whiteList:
+    extensions: doc, docx, xls, xlsx, ppt, pptx, pdf, jpeg, jpg, gif, png
+    from: no-responder@development.example.com
+    to: "endtest-mail.io"
+
+
+## Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

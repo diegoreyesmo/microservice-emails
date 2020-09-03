@@ -1,0 +1,16 @@
+---
+spring:
+  profiles:
+    active: "dev"
+  application:
+    name: "emails"
+  cloud:
+    config:
+      uri: "http://localhost:8888"
+      fail-fast: true
+      username: "config-server-dev"
+      password: "6pEv6FL7NL#by(v"
+
+logging:
+  file:
+    path: "/opt/emails/logs"
